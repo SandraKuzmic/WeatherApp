@@ -8,7 +8,8 @@ data class City(
         val main: WeatherValues,
         val visibility: Int,
         val wind: Wind,
-        val clouds: Cloud
+        val clouds: Cloud,
+        val sys: Sys
 )
 
 data class Weather(
@@ -32,4 +33,10 @@ data class Wind(
 
 data class Cloud(
         val all: Int
+)
+
+data class Sys (
+    val country: String,
+    val sunrise: Long,
+    val sunset: Long
 )

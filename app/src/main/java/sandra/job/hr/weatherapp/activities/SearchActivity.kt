@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
 import android.view.Menu
+import android.view.View
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.content_search.*
 import retrofit2.Response
 import sandra.job.hr.weatherapp.R
 import sandra.job.hr.weatherapp.model.City
@@ -27,7 +29,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        if(Intent.ACTION_SEARCH == intent.action) {
+        if (Intent.ACTION_SEARCH == intent.action) {
             preformSearch(intent.getStringExtra(SearchManager.QUERY))
         }
     }
@@ -54,24 +56,46 @@ class SearchActivity : AppCompatActivity() {
         disposable.add(weatherApi.getCurrentWeather(query)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object: DisposableObserver<Response<City>>() {
-                    override fun onComplete() {
+                .subscribeWith(object : DisposableObserver<Response<City>>() {
+                    override fun onStart() {
+                        startLoading()
+                    }
 
+                    override fun onComplete() {
+                        finishLoading()
                     }
 
                     override fun onNext(response: Response<City>) {
                         if (response.code() == 200) {
-                            tv_hello.text = response.body()?.toString()
+                            response.body()?.apply {
+                                tvCity.text = getString(R.string.city_country, name, sys.country)
+                                tvCurrentTemp.text = getString(R.string.deg, main.temp)
+                                tvWeather.text = weather[0].description.capitalize()
+                                tvHumidity.text = getString(R.string.percentage, main.humidity)
+                                tvTemperatureHigh.text = getString(R.string.deg, main.tempMax)
+                                tvTemperatureLow.text = getString(R.string.deg, main.tempMin)
+                                tvPressure.text = getString(R.string.hpa, main.pressure)
+                            }
                         } else {
-                            tv_hello.text = response.message()
+//                            tv_hello.text = response.message()
                         }
                     }
 
                     override fun onError(e: Throwable) {
-
+                        finishLoading()
                     }
 
                 })
         )
+    }
+
+    private fun startLoading() {
+        pbLoadCity.visibility = View.VISIBLE
+        contentCity.visibility = View.GONE
+    }
+
+    private fun finishLoading() {
+        pbLoadCity.visibility = View.GONE
+        contentCity.visibility = View.VISIBLE
     }
 }

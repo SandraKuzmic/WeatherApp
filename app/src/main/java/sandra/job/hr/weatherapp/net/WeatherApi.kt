@@ -22,7 +22,8 @@ interface WeatherApi {
     @GET("data/2.5/weather")
     fun getCurrentWeather(
             @Query("q") city: String,
-            @Query("APPID") appId: String = API_KEY
+            @Query("APPID") appId: String = API_KEY,
+            @Query("units") units: String = "metric"
     ): Observable<Response<City>>
 
     @GET("img/w/{id}.png")

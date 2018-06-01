@@ -2,4 +2,14 @@
     <string name="app_name">WeatherApp</string>
     <string name="search_hint">London, UK</string>
     <string name="search">Search</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="humidity">Humidity</string>
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressure</string>
+
+    <!--String placeholders-->
+    <string name="city_country">%s, %s</string>
+    <string name="deg">%.0f\u00b0</string>
+    <string name="percentage">%d%%</string>
+    <string name="hpa">%d hPa</string>
 </resources>

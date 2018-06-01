@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvCurrentTemp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Zagreb, HR" />
+
+    <TextView
+        android:id="@+id/tvCurrentTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvWeather"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/horizontal_middle"
+        tools:text="-9\u00b0" />
+
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/weather_icon"
+        app:layout_constraintBottom_toTopOf="@id/tvWeather"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvCurrentTemp"
+        tools:src="@drawable/ic_cloud" />
+
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/dividerLeft"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Clear" />
+
+    <TextView
+        android:id="@+id/tvHumidityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dividerLeft"
+        app:layout_constraintTop_toTopOf="@id/dividerLeft" />
+
+    <TextView
+        android:id="@+id/tvHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/dividerLeft"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dividerLeft"
+        app:layout_constraintTop_toBottomOf="@id/tvHumidity"
+        app:layout_constraintVertical_bias="0.8"
+        tools:text="20%" />
+
+    <TextView
+        android:id="@+id/tvTemperatureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        app:layout_constraintLeft_toRightOf="@id/dividerLeft"
+        app:layout_constraintRight_toLeftOf="@id/dividerRight"
+        app:layout_constraintTop_toTopOf="@id/dividerLeft" />
+
+    <TextView
+        android:id="@+id/tvTemperatureHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="@id/dividerLeft"
+        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintLeft_toRightOf="@id/dividerLeft"
+        app:layout_constraintRight_toLeftOf="@id/horizontal_middle"
+        app:layout_constraintTop_toBottomOf="@id/tvTemperatureHigh"
+        app:layout_constraintVertical_bias="0.8"
+        tools:text="20\u00b0" />
+
+    <TextView
+        android:id="@+id/tvTemperatureLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="@id/tvTemperatureHigh"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toRightOf="@id/horizontal_middle"
+        app:layout_constraintRight_toLeftOf="@id/dividerRight"
+        app:layout_constraintTop_toBottomOf="@id/tvTemperatureLabel"
+        app:layout_constraintVertical_bias="0.8"
+        tools:text="6\u00b0" />
+
+    <TextView
+        android:id="@+id/tvPressureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pressure"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dividerRight"
+        app:layout_constraintTop_toTopOf="@id/dividerLeft" />
+
+    <TextView
+        android:id="@+id/tvPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/dividerLeft"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dividerRight"
+        app:layout_constraintTop_toBottomOf="@id/tvPressure"
+        app:layout_constraintVertical_bias="0.8"
+        tools:text="1025 hPa" />
+
+    <TextView
+        android:id="@+id/dividerLeft"
+        android:layout_width="4dp"
+        android:layout_height="90dp"
+        android:background="#dadada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/horizontal_middle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dividerRight"
+        android:layout_width="4dp"
+        android:layout_height="90dp"
+        android:background="#dadada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
