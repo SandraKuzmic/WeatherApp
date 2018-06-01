@@ -1,4 +1,15 @@
 <resources>
+    <!--String placeholders-->
+    <string name="city_country">%s, %s</string>
+    <string name="deg">%.0f\u00b0</string>
+    <string name="percentage">%.0f%%</string>
+    <string name="hpa">%.0f hPa</string>
+    <!---->
+
+    <!--Keys-->
+    <string name="city_extra">CITY</string>
+    <!---->
+
     <string name="app_name">WeatherApp</string>
     <string name="search_hint">London, UK</string>
     <string name="search">Search</string>
@@ -6,12 +17,7 @@
     <string name="humidity">Humidity</string>
     <string name="temperature">Temperature</string>
     <string name="pressure">Pressure</string>
-
-    <!--String placeholders-->
-    <string name="city_country">%s, %s</string>
-    <string name="deg">%.0f\u00b0</string>
-    <string name="percentage">%d%%</string>
-    <string name="hpa">%d hPa</string>
-    <!---->
     <string name="city_not_found">Error, city not found</string>
+    <string name="show_5_days_forecast">Show 5 days forecast</string>
+    <string name="no_city">No city provided</string>
 </resources>

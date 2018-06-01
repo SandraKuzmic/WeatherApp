@@ -19,12 +19,15 @@ import retrofit2.Response
 import sandra.job.hr.weatherapp.R
 import sandra.job.hr.weatherapp.model.City
 import sandra.job.hr.weatherapp.net.WeatherApi
+import sandra.job.hr.weatherapp.net.imageUrl
+import sandra.job.hr.weatherapp.utils.RESPONSE_OK
 
 
 class SearchActivity : AppCompatActivity() {
 
     private val weatherApi by lazy { WeatherApi.create() }
     private val disposable = CompositeDisposable()
+    private lateinit var city: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,12 @@ class SearchActivity : AppCompatActivity() {
 
         if (Intent.ACTION_SEARCH == intent.action) {
             preformSearch(intent.getStringExtra(SearchManager.QUERY))
+        }
+
+        tvShowForecast.setOnClickListener {
+            val intent = Intent(this@SearchActivity, ForecastActivity::class.java)
+            intent.putExtra(getString(R.string.city_extra), city)
+            startActivity(intent)
         }
     }
 
@@ -54,6 +63,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun preformSearch(query: String) {
+        city = query
         disposable.add(weatherApi.getCurrentWeather(query)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -67,7 +77,7 @@ class SearchActivity : AppCompatActivity() {
 
                     override fun onNext(response: Response<City>) {
                         var hasError = true
-                        if (response.code() == 200) {
+                        if (response.code() == RESPONSE_OK) {
                             hasError = false
                             response.body()?.apply {
                                 tvCity.text = getString(R.string.city_country, name, sys.country)
@@ -77,7 +87,7 @@ class SearchActivity : AppCompatActivity() {
                                 tvTemperatureHigh.text = getString(R.string.deg, main.tempMax)
                                 tvTemperatureLow.text = getString(R.string.deg, main.tempMin)
                                 tvPressure.text = getString(R.string.hpa, main.pressure)
-                                Picasso.get().load("http://api.openweathermap.org/img/w/${weather.first().icon}.png").into(ivWeatherIcon)
+                                Picasso.get().load(imageUrl(weather.first().icon)).into(ivWeatherIcon)
                             }
                         }
                         finishLoading(hasError)

@@ -11,10 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import sandra.job.hr.weatherapp.model.City
+import sandra.job.hr.weatherapp.model.Forecast
 
 private const val API_KEY = "27cffafb9603dab3ffd83c8dfc110e89"
 
 private const val weatherBaseUrl = "http://api.openweathermap.org/"
+
+public fun imageUrl(icon: String) = "http://api.openweathermap.org/img/w/$icon.png"
 
 interface WeatherApi {
 
@@ -24,6 +27,13 @@ interface WeatherApi {
             @Query("APPID") appId: String = API_KEY,
             @Query("units") units: String = "metric"
     ): Observable<Response<City>>
+
+    @GET("data/2.5/forecast")
+    fun getForecast(
+            @Query("q") city: String,
+            @Query("APPID") appId: String = API_KEY,
+            @Query("units") units: String = "metric"
+    ): Observable<Response<Forecast>>
 
     companion object {
         fun create(): WeatherApi {
