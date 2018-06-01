@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.net
+package sandra.app.hr.weatherapp.net
 
 import com.google.gson.GsonBuilder
 import io.reactivex.Observable
@@ -10,8 +10,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-import sandra.job.hr.weatherapp.model.City
-import sandra.job.hr.weatherapp.model.Forecast
+import sandra.app.hr.weatherapp.model.City
+import sandra.app.hr.weatherapp.model.Forecast
 
 private const val API_KEY = "27cffafb9603dab3ffd83c8dfc110e89"
 

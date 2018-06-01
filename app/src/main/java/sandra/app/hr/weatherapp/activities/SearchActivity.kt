@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.activities
+package sandra.app.hr.weatherapp.activities
 
 import android.app.SearchManager
 import android.content.Context
@@ -16,11 +16,11 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.content_search.*
 import retrofit2.Response
-import sandra.job.hr.weatherapp.R
-import sandra.job.hr.weatherapp.model.City
-import sandra.job.hr.weatherapp.net.WeatherApi
-import sandra.job.hr.weatherapp.net.imageUrl
-import sandra.job.hr.weatherapp.utils.RESPONSE_OK
+import sandra.app.hr.weatherapp.R
+import sandra.app.hr.weatherapp.model.City
+import sandra.app.hr.weatherapp.net.WeatherApi
+import sandra.app.hr.weatherapp.net.imageUrl
+import sandra.app.hr.weatherapp.utils.RESPONSE_OK
 
 
 class SearchActivity : AppCompatActivity() {

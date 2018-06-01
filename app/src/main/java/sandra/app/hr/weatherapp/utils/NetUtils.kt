@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.utils
+package sandra.app.hr.weatherapp.utils
 
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE

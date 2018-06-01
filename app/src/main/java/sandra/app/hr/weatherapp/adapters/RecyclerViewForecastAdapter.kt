@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.adapters
+package sandra.app.hr.weatherapp.adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
-import sandra.job.hr.weatherapp.R
-import sandra.job.hr.weatherapp.databinding.ForecastItemBinding
-import sandra.job.hr.weatherapp.model.ForecastItem
-import sandra.job.hr.weatherapp.net.imageUrl
+import sandra.app.hr.weatherapp.R
+import sandra.app.hr.weatherapp.databinding.ForecastItemBinding
+import sandra.app.hr.weatherapp.model.ForecastItem
+import sandra.app.hr.weatherapp.net.imageUrl
 
 class RecyclerViewForecastAdapter(private val context: Context,
                                   private val list: List<ForecastItem>

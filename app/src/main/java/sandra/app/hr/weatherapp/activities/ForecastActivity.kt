@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.activities
+package sandra.app.hr.weatherapp.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -13,12 +13,12 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_forecast.*
 import net.danlew.android.joda.JodaTimeAndroid
 import retrofit2.Response
-import sandra.job.hr.weatherapp.R
-import sandra.job.hr.weatherapp.adapters.RecyclerViewForecastAdapter
-import sandra.job.hr.weatherapp.model.Forecast
-import sandra.job.hr.weatherapp.model.ForecastItem
-import sandra.job.hr.weatherapp.net.WeatherApi
-import sandra.job.hr.weatherapp.utils.RESPONSE_OK
+import sandra.app.hr.weatherapp.R
+import sandra.app.hr.weatherapp.adapters.RecyclerViewForecastAdapter
+import sandra.app.hr.weatherapp.model.Forecast
+import sandra.app.hr.weatherapp.model.ForecastItem
+import sandra.app.hr.weatherapp.net.WeatherApi
+import sandra.app.hr.weatherapp.utils.RESPONSE_OK
 
 class ForecastActivity : AppCompatActivity() {
 

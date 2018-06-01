@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp.model
+package sandra.app.hr.weatherapp.model
 
 data class City(
         val name: String,

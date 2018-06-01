@@ -1,4 +1,4 @@
-package sandra.job.hr.weatherapp
+package sandra.app.hr.weatherapp
 
 import org.junit.Test
 
