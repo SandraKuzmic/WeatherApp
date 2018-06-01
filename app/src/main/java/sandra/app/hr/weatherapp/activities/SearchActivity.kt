@@ -84,8 +84,7 @@ class SearchActivity : AppCompatActivity() {
                                 tvCurrentTemp.text = getString(R.string.deg, main.temp)
                                 tvWeather.text = weather.first().description.capitalize()
                                 tvHumidity.text = getString(R.string.percentage, main.humidity)
-                                tvTemperatureHigh.text = getString(R.string.deg, main.tempMax)
-                                tvTemperatureLow.text = getString(R.string.deg, main.tempMin)
+                                tvWind.text = getString(R.string.m_s, wind.speed)
                                 tvPressure.text = getString(R.string.hpa, main.pressure)
                                 Picasso.get().load(imageUrl(weather.first().icon)).into(ivWeatherIcon)
                             }

@@ -37,11 +37,9 @@ class ForecastViewHolder(private val context: Context,
     fun bind(data: ForecastItem) {
         binding.apply {
             Picasso.get().load(imageUrl(data.weather.first().icon)).into(ivForecastIcon)
-            tvDay.text = DateTime.parse(data.timestamp, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"))
-                    .dayOfWeek()
-                    .asText
-            tvForecastTempHigh.text = context.getString(R.string.deg, data.main.tempMax)
-            tvForecastTempLow.text = context.getString(R.string.deg, data.main.tempMin)
+            val date = DateTime.parse(data.timestamp, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"))
+            tvDay.text = context.getString(R.string.forecast_day, date.dayOfWeek().asText, date.hourOfDay().get())
+            tvForecastTemp.text = context.getString(R.string.deg, data.main.temp)
             executePendingBindings()
         }
     }
