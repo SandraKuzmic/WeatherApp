@@ -28,6 +28,7 @@ class SearchActivity : AppCompatActivity() {
     private val weatherApi by lazy { WeatherApi.create() }
     private val disposable = CompositeDisposable()
     private lateinit var city: String
+    private lateinit var video: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +41,12 @@ class SearchActivity : AppCompatActivity() {
         tvShowForecast.setOnClickListener {
             val intent = Intent(this@SearchActivity, ForecastActivity::class.java)
             intent.putExtra(getString(R.string.city_extra), city)
+            startActivity(intent)
+        }
+
+        tvShowVideo.setOnClickListener {
+            val intent = Intent(this@SearchActivity, VideoActivity::class.java)
+            intent.putExtra(getString(R.string.video_extra), video)
             startActivity(intent)
         }
     }
@@ -87,6 +94,8 @@ class SearchActivity : AppCompatActivity() {
                                 tvWind.text = getString(R.string.m_s, wind.speed)
                                 tvPressure.text = getString(R.string.hpa, main.pressure)
                                 Picasso.get().load(imageUrl(weather.first().icon)).into(ivWeatherIcon)
+
+                                video = "${weather.first().description} $name"
                             }
                         }
                         finishLoading(hasError)

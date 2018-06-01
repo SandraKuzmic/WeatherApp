@@ -10,6 +10,8 @@
 
     <!--Keys-->
     <string name="city_extra">CITY</string>
+    <string name="video_extra">VIDEO</string>
+    <string name="API_KEY">AIzaSyB_hZWLyMqgv8Y4PThA6d4d6GZviKuSOK0</string>
     <!---->
 
     <string name="app_name">WeatherApp</string>
@@ -24,4 +26,5 @@
     <string name="no_city">No city provided</string>
     <string name="wind">Wind</string>
     <string name="show_weather_video">Show weather video</string>
+    <string name="no_data_provided">Error, no data provided</string>
 </resources>

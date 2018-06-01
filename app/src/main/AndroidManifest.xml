@@ -29,6 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.SearchActivity" />
         </activity>
+        <activity
+            android:name=".activities.VideoActivity"
+            android:parentActivityName=".activities.SearchActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SearchActivity" />
+        </activity>
     </application>
 
 </manifest>
