@@ -12,4 +12,6 @@
     <string name="deg">%.0f\u00b0</string>
     <string name="percentage">%d%%</string>
     <string name="hpa">%d hPa</string>
+    <!---->
+    <string name="city_not_found">Error, city not found</string>
 </resources>

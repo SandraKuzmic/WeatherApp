@@ -9,7 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 import sandra.job.hr.weatherapp.model.City
 
@@ -25,9 +24,6 @@ interface WeatherApi {
             @Query("APPID") appId: String = API_KEY,
             @Query("units") units: String = "metric"
     ): Observable<Response<City>>
-
-    @GET("img/w/{id}.png")
-    fun getWearherData(@Path("id") imageId: String)
 
     companion object {
         fun create(): WeatherApi {
@@ -54,5 +50,4 @@ interface WeatherApi {
             return retrofit.create(WeatherApi::class.java)
         }
     }
-
 }
