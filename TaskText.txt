@@ -1,0 +1,103 @@
+Zadatak: Razviti aplikaciju za pregled prognoze
+
+Opis zadatka:
+
+Koristiti ćeš https://openweathermap.org/api te pomoću njega implementirati zadane funkcionalnosti.
+
+Aplikacija smije sadržavati dodatne screenove po želji, ali ova tri su dovoljna za ocjenjivanje.
+
+Aplikacija mora imati obavijest ako nije spojena na internet.
+
+Kod aplikacije (Android Studio projekt) nam pošalji kao zip ili git repozitorij te priloži .apk datoteku
+
+Aplikacija se sastoji od tri screena:
+
+1. Početni screen za pretragu željenog grada
+
+2. Pregled prognoze za najmanje tri sljedeća dana za željeni grad
+
+3. Za današnju prognozu traženog grada prikazati Youtube filmic nađen po proizvoljnim parametrima iz weather API
+
+
+Navigaciju među screenovima složi po želji, za video prikaz poželjno je koristiti YouTube Android Player API.
+
+
+Primjer:
+
+Nađemo današnju prognozu za London pomoću open weather APIa:
+
+{
+
+	"weather": [
+
+    	{
+
+        	"id": 800,
+
+        	"main": "Clear",
+
+        	"description": "clear sky",
+
+    	}
+
+	],
+
+	"main": {
+
+    	"temp": 283.307,
+
+    	"pressure": 1029.46,
+
+    	"humidity": 81,
+
+	},
+
+	"wind": {
+
+    	"speed": 2.56,
+
+    	"deg": 25.5002
+
+	},
+
+	"id": 2643743,
+
+	"name": "London",
+
+	"cod": 200
+
+}
+
+
+Primjer Youtube filmića može biti prvi rezultat Youtube searcha za "clear sky london"
+
+Za ovo ćeš iskoristiti Youtube Search API - https://developers.google.com/youtube/v3/docs/search/list
+
+
+Ocjenjuju se:
+
+* implementirane zadane funkcionalnosti
+
+* jasnoća programskog kôda
+
+* jvalitetna struktura aplikacije, datoteka, klasa i packagea
+
+* način izvedbe te korišteni libraryji
+
+
+NE ocjenjuje se prikaz rezultata te dizajn sučelja, iako je bitno pridržavati se općenitih mobile standarda.
+
+
+Konfiguracija Android projekta:
+
+Minimalna verzija Androida podržana mora biti 16 (minSdkVersion 16)
+
+Target verzija Android OS-a neka bude minimalno 27 (targetSdkVersion 27)
+
+Ostatak konfiguracije postavi proizvoljno
+
+
+Rok za slanje rješenja je nedjelja, 03.06.2018., do kraja dana (23:59 h).
+
+
+Obvezujemo se da rješenja nećemo koristiti u nikakve poslovne svrhe, te će služiti isključivo u svrhu vrednovanja pristiglih prijava.
