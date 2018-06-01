@@ -11,6 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_forecast.*
+import net.danlew.android.joda.JodaTimeAndroid
 import retrofit2.Response
 import sandra.job.hr.weatherapp.R
 import sandra.job.hr.weatherapp.adapters.RecyclerViewForecastAdapter
@@ -30,6 +31,8 @@ class ForecastActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
+
+        JodaTimeAndroid.init(this)
 
         val cityExtraKey = getString(R.string.city_extra)
         if(!intent.hasExtra(cityExtraKey)) {

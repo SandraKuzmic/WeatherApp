@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 import sandra.job.hr.weatherapp.R
 import sandra.job.hr.weatherapp.databinding.ForecastItemBinding
 import sandra.job.hr.weatherapp.model.ForecastItem
@@ -35,7 +37,9 @@ class ForecastViewHolder(private val context: Context,
     fun bind(data: ForecastItem) {
         binding.apply {
             Picasso.get().load(imageUrl(data.weather.first().icon)).into(ivForecastIcon)
-            tvDay.text = data.timestamp
+            tvDay.text = DateTime.parse(data.timestamp, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"))
+                    .dayOfWeek()
+                    .asText
             tvForecastTempHigh.text = context.getString(R.string.deg, data.main.tempMax)
             tvForecastTempLow.text = context.getString(R.string.deg, data.main.tempMin)
             executePendingBindings()
