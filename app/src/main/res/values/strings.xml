@@ -28,4 +28,6 @@
     <string name="wind">Wind</string>
     <string name="show_weather_video">Show weather video</string>
     <string name="no_data_provided">Error, no data provided</string>
+    <string name="welcome_to_weatherapp">Welcome to WeatherApp</string>
+    <string name="use_search_to_find_your_city_s_weather_data">Use search to find your city\'s weather data</string>
 </resources>

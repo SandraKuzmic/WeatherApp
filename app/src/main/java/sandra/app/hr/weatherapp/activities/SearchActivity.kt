@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -69,6 +70,22 @@ class SearchActivity : AppCompatActivity() {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.setIconifiedByDefault(false)
 
+        menu.findItem(R.id.item_search).setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                contentWelcome.visibility = View.GONE
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                if (pbLoadCity.visibility != View.VISIBLE
+                        && tvErrorCity.visibility != View.VISIBLE
+                        && contentCity.visibility != View.VISIBLE) {
+                    contentWelcome.visibility = View.VISIBLE
+                }
+                return true
+            }
+        })
+
         return true
     }
 
@@ -121,6 +138,7 @@ class SearchActivity : AppCompatActivity() {
         pbLoadCity.visibility = View.VISIBLE
         tvErrorCity.visibility = View.GONE
         contentCity.visibility = View.GONE
+        contentWelcome.visibility = View.GONE
     }
 
     private fun finishLoading(hasError: Boolean) {
