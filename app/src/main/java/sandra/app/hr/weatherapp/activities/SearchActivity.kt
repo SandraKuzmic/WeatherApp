@@ -95,7 +95,7 @@ class SearchActivity : AppCompatActivity() {
                                 tvPressure.text = getString(R.string.hpa, main.pressure)
                                 Picasso.get().load(imageUrl(weather.first().icon)).into(ivWeatherIcon)
 
-                                video = "${weather.first().description} $name"
+                                video = "${weather.first().description} $name weather"
                             }
                         }
                         finishLoading(hasError)

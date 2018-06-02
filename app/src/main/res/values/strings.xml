@@ -6,6 +6,7 @@
     <string name="hpa">%.0f hPa</string>
     <string name="forecast_day">%s, %02d:00</string>
     <string name="m_s">%.2f m/s</string>
+    <string name="result_query">Showing results for: %s</string>
     <!---->
 
     <!--Keys-->
