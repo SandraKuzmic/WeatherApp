@@ -33,8 +33,9 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"
-                tools:text="Thursday" />
+                tools:text="Thursday, 14:00" />
 
             <TextView
                 android:id="@+id/tvForecastTemp"
@@ -43,6 +44,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"
                 tools:text="32\u00b0" />
 
