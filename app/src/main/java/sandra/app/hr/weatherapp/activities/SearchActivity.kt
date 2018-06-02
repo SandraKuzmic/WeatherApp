@@ -34,9 +34,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        if (Intent.ACTION_SEARCH == intent.action) {
-            preformSearch(intent.getStringExtra(SearchManager.QUERY))
-        }
+        handleIntent(intent)
 
         tvShowForecast.setOnClickListener {
             val intent = Intent(this@SearchActivity, ForecastActivity::class.java)
@@ -49,6 +47,11 @@ class SearchActivity : AppCompatActivity() {
             intent.putExtra(getString(R.string.video_extra), video)
             startActivity(intent)
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        intent?.let { handleIntent(it) }
     }
 
     override fun onDestroy() {
@@ -64,9 +67,15 @@ class SearchActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu?.findItem(R.id.item_search)?.actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.setIconifiedByDefault(false) //TODO set icon on left
+        searchView.setIconifiedByDefault(false)
 
         return true
+    }
+
+    private fun handleIntent(intent: Intent) {
+        if (Intent.ACTION_SEARCH == intent.action) {
+            preformSearch(intent.getStringExtra(SearchManager.QUERY))
+        }
     }
 
     private fun preformSearch(query: String) {
@@ -116,7 +125,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun finishLoading(hasError: Boolean) {
         pbLoadCity.visibility = View.GONE
-        if (hasError){
+        if (hasError) {
             tvErrorCity.visibility = View.VISIBLE
             tvErrorCity.text = getString(R.string.city_not_found)
         } else {
