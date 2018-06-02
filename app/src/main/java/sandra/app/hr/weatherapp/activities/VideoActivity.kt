@@ -2,7 +2,6 @@ package sandra.app.hr.weatherapp.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -19,6 +18,7 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_video.*
 import sandra.app.hr.weatherapp.R
+import sandra.app.hr.weatherapp.utils.checkConnection
 
 
 class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
@@ -28,6 +28,8 @@ class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
+
+        checkConnection(this)
 
         val videoExtraKey = getString(R.string.video_extra)
         if (!intent.hasExtra(videoExtraKey)) {
@@ -55,9 +57,7 @@ class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
                     }
 
                     override fun onError(e: Throwable) {
-                        Log.d("OkHttp", e.localizedMessage)
                     }
-
                 })
 
     }

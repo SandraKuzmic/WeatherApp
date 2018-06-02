@@ -19,6 +19,7 @@ import sandra.app.hr.weatherapp.model.Forecast
 import sandra.app.hr.weatherapp.model.ForecastItem
 import sandra.app.hr.weatherapp.net.WeatherApi
 import sandra.app.hr.weatherapp.utils.RESPONSE_OK
+import sandra.app.hr.weatherapp.utils.checkConnection
 
 class ForecastActivity : AppCompatActivity() {
 
@@ -32,10 +33,12 @@ class ForecastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
 
+        checkConnection(this)
+
         JodaTimeAndroid.init(this)
 
         val cityExtraKey = getString(R.string.city_extra)
-        if(!intent.hasExtra(cityExtraKey)) {
+        if (!intent.hasExtra(cityExtraKey)) {
             Toast.makeText(this, getString(R.string.no_city), Toast.LENGTH_SHORT).show()
             finish()
         }

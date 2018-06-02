@@ -22,6 +22,7 @@ import sandra.app.hr.weatherapp.model.City
 import sandra.app.hr.weatherapp.net.WeatherApi
 import sandra.app.hr.weatherapp.net.imageUrl
 import sandra.app.hr.weatherapp.utils.RESPONSE_OK
+import sandra.app.hr.weatherapp.utils.checkConnection
 
 
 class SearchActivity : AppCompatActivity() {
@@ -34,6 +35,8 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        checkConnection(this)
 
         handleIntent(intent)
 
@@ -91,6 +94,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_SEARCH == intent.action) {
+            checkConnection(this)
             preformSearch(intent.getStringExtra(SearchManager.QUERY))
         }
     }

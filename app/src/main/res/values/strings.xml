@@ -30,4 +30,7 @@
     <string name="no_data_provided">Error, no data provided</string>
     <string name="welcome_to_weatherapp">Welcome to WeatherApp</string>
     <string name="use_search_to_find_your_city_s_weather_data">Use search to find your city\'s weather data</string>
+    <string name="no_connection">No connection</string>
+    <string name="check_conn">Check your connection and try again</string>
+    <string name="ok">OK</string>
 </resources>
