@@ -71,7 +71,7 @@ class SearchActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu?.findItem(R.id.item_search)?.actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.setIconifiedByDefault(false)
+        searchView.setIconifiedByDefault(true)
 
         menu.findItem(R.id.item_search).setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
@@ -80,11 +80,12 @@ class SearchActivity : AppCompatActivity() {
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (pbLoadCity.visibility != View.VISIBLE
-                        && tvErrorCity.visibility != View.VISIBLE
-                        && contentCity.visibility != View.VISIBLE) {
-                    contentWelcome.visibility = View.VISIBLE
+                if (pbLoadCity.visibility == View.VISIBLE) {
+                    return false //to finish loading first
                 }
+                tvErrorCity.visibility = View.GONE
+                contentCity.visibility = View.GONE
+                contentWelcome.visibility = View.VISIBLE
                 return true
             }
         })

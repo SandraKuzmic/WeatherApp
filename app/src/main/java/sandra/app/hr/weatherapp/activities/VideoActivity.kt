@@ -2,6 +2,7 @@ package sandra.app.hr.weatherapp.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -17,6 +18,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_video.*
+import kotlinx.android.synthetic.main.content_video.*
 import sandra.app.hr.weatherapp.R
 import sandra.app.hr.weatherapp.utils.checkConnection
 
@@ -45,6 +47,10 @@ class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableObserver<SearchResult>() {
+                    override fun onStart() {
+                        startLoading()
+                    }
+
                     override fun onComplete() {
                     }
 
@@ -57,19 +63,21 @@ class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
                     }
 
                     override fun onError(e: Throwable) {
+                        errorHandle(e.localizedMessage)
                     }
                 })
 
     }
 
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, youTubePlayer: YouTubePlayer?, wasRestored: Boolean) {
+        finishLoading()
         if (!wasRestored) {
             youTubePlayer?.cueVideo(videoId)
         }
     }
 
     override fun onInitializationFailure(provider: YouTubePlayer.Provider, error: YouTubeInitializationResult) {
-        Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+        errorHandle(error.toString())
     }
 
     private fun startYouTubeSearch(query: String): SearchResult? {
@@ -86,6 +94,21 @@ class VideoActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener {
         search.maxResults = 1
 
         return search.execute().items.first()
+    }
+
+    private fun errorHandle(error: String) {
+        finishLoading()
+        tvVideoDescription.text = getString(R.string.error, error)
+    }
+
+    private fun startLoading() {
+        pbLoadVideo.visibility = View.VISIBLE
+        contentVideo.visibility = View.GONE
+    }
+
+    private fun finishLoading() {
+        pbLoadVideo.visibility = View.GONE
+        contentVideo.visibility = View.VISIBLE
     }
 }
 
