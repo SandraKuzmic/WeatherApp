@@ -24,7 +24,7 @@
 
     <include
         android:id="@+id/contentCity"
-        android:visibility="gone"
-        layout="@layout/content_search" />
+        layout="@layout/content_search"
+        android:visibility="gone" />
 
 </LinearLayout>
