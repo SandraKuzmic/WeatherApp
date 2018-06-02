@@ -23,7 +23,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
                 android:contentDescription="@string/weather_icon"
-                tools:src="@drawable/ic_cloud" />
+                tools:src="@drawable/splash_screen_background" />
 
             <TextView
                 android:id="@+id/tvDay"

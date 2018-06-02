@@ -3,7 +3,6 @@ package sandra.app.hr.weatherapp.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -67,10 +66,8 @@ class ForecastActivity : AppCompatActivity() {
                     }
 
                     override fun onError(e: Throwable) {
-                        Log.d("OkHttp", e.localizedMessage)
                         finishLoading()
                     }
-
                 })
         )
     }

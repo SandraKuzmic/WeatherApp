@@ -17,7 +17,7 @@ private const val API_KEY = "27cffafb9603dab3ffd83c8dfc110e89"
 
 private const val weatherBaseUrl = "http://api.openweathermap.org/"
 
-public fun imageUrl(icon: String) = "http://api.openweathermap.org/img/w/$icon.png"
+fun imageUrl(icon: String) = "http://api.openweathermap.org/img/w/$icon.png"
 
 interface WeatherApi {
 
@@ -39,7 +39,6 @@ interface WeatherApi {
         fun create(): WeatherApi {
             val gson = GsonBuilder()
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-//                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                     .create()
 
             //logging OkHttp

@@ -25,7 +25,7 @@ data class Cloud(
         val all: Int
 )
 
-data class Sys (
+data class Sys(
         val country: String,
         val sunrise: Long,
         val sunset: Long
