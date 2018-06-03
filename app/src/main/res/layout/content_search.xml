@@ -221,7 +221,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvShowForecast"
-            app:layout_constraintVertical_bias="0.13999999" />
+            app:layout_constraintVertical_bias="0.14" />
 
 
     </android.support.constraint.ConstraintLayout>
